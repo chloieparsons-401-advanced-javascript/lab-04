@@ -1,0 +1,22 @@
+{
+  "name": "lab-04",
+  "version": "1.0.0",
+  "description": "Buffers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chloieparsons-401-advanced-javascript/lab-04.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chloieparsons-401-advanced-javascript/lab-04/issues"
+  },
+  "homepage": "https://github.com/chloieparsons-401-advanced-javascript/lab-04#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
+}
