@@ -16,10 +16,8 @@
 modulename.js
 
 # Exported Values and Methods
-foo(thing) -> string
 # Usage Notes or examples
-bar(array) -> array
-#Usage Notes or examples
+# Usage Notes or examples
 
 # Running the app
 npm start

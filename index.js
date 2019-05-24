@@ -36,25 +36,6 @@ newBuffer(arr)
   })
   .catch(console.error);
 
-// let stringifyBuffer = (buffer) =>{
-//   let str = '';
-//   for (let char of buffer) {
-//     str += String.fromCharCode(char);
-//   }
-
-//   return str;
-// };
-
-// let writeHTMLFile = binaryFile => {
-//   return new Promise((resolve, reject) => { 
-//     fs.writeFile('./files/index.html', binaryFile, (err) => {
-//       if (err) reject(err);
-//     });
-//   });
-// };
-
-// console.log(writeHTMLFile(arr));
-
 let readFile = () => {
   return new Promise((resolve, reject) => { 
     fs.readFile('./files/loop.js', (err, data) => {
