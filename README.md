@@ -9,27 +9,15 @@
 
 * Travis: https://www.travis-ci.com/chloieparsons-401-advanced-javascript/lab-04
 
-* Submission PR:
-
+* Submission PR: https://github.com/chloieparsons-401-advanced-javascript/lab-04/pull/1
 
 # Modules
-modulename.js
-
-# Exported Values and Methods
-# Usage Notes or examples
-# Usage Notes or examples
+* index.js
+* files/index.html
+* files/loop.js
 
 # Running the app
 npm start
-Endpoint: /foo/bar/
-Returns a JSON object with abc in it.
-Endpoint: /bing/zing/
-Returns a JSON object with xyz in it.
 
 # Tests
-How do you run tests?
-What assertions were made?
-What assertions need to be / should be made?
-
-# UML
-Link to an image of the UML for your application and response to events
+* index.test.js

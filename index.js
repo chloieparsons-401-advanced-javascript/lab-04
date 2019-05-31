@@ -86,13 +86,8 @@ class CreateArticle {
     }.bind(this));
 
     lineReader.on('close', () => {
-      return new Promise((resolve, reject) => { 
-        fs.writeFile('./files/index.html', this.buffer, (err, data) => {
-          if (err) reject(err); {
-            resolve(data)
-          };
-          console.log(writeFile());
-        });
+      fs.writeFile('./files/index.html', this.buffer, (err, data) => {
+        console.log('Start live-server, file is there so celebrate');
       });
     });
   }

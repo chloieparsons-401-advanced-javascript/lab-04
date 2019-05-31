@@ -26,7 +26,7 @@ describe('Created files and all sundry tasks'), () => {
     let file = ['Contents'];
 
     return FileReader.readFile(file)
-    .then(data => expect(data).toBeDefined())
-    .catch();
+      .then(data => expect(data).toBeDefined())
+      .catch();
   }); 
 };
