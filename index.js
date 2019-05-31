@@ -2,7 +2,7 @@
 
 //TASK 1 & 2 Constant Needs
 const fs = require('fs');
-const reader = require('readline');
+const readLine = require('readline');
 
 //TASK 1
 
@@ -67,7 +67,7 @@ class CreateArticle {
   }
 
   convert(file) {
-    var lineReader = reader.createInterface({
+    var lineReader = readLine.createInterface({
       input: fs.createReadStream(file),
     });
 
