@@ -67,15 +67,15 @@ class CreateArticle {
   }
 
   convert(file) {
-    let lineReader = reader.createInterface({
+    var lineReader = reader.createInterface({
       input: fs.createReadStream(file),
     });
 
     lineReader.on('line', function (line) {
-      if (line.match (/^[0-9]\./)) {
+      if ( line.match(/^[0-9]\./) ) {
         this.createTag('h3', Buffer.from(line));
       }
-      else if (line.match(/\./)) {
+      else if ( line.match(/\./) ) {
         line.split('.').forEach(sentence => {
           sentence && this.createTag('li', Buffer.from(sentence));
         });
@@ -87,11 +87,11 @@ class CreateArticle {
 
     lineReader.on('close', () => {
       fs.writeFile('./files/index.html', this.buffer, (err, data) => {
-        console.log('Start live-server, file is there so celebrate');
+        console.log('Start live-server, file is there so celebrate!');
       });
     });
   }
-};
+}
 
 let htmlTags = new CreateArticle();
 htmlTags.convert('./files/pair-programming.txt');
