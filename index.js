@@ -1,6 +1,11 @@
-
 'use strict';
+
+//TASK 1 & 2 Constant Needs
 const fs = require('fs');
+const reader = require('readline');
+
+//TASK 1
+
 let arr = `'use strict'; \n 
 let arr = ['JP', 'Chloie', 'JT']; \n 
 arr.forEach(element => {
@@ -40,3 +45,58 @@ let readFile = () => {
     console.log(readFile());
   });
 };
+
+//TASK 2
+
+class CreateArticle {
+
+  constructor() {
+    this.buffer = Buffer.from('');
+    this.tags = {};
+  }
+
+  createTag(tag, buffer) {
+    if (! this.tags[tag] ) {
+      this.tags[tag] = { 
+        open: Buffer.from(`<${tag}>`),
+        close: Buffer.from(`</${tag}>`),
+      };
+    }
+
+    this.buffer = Buffer.concat( [this.buffer, this.tags[tag].open, buffer, this.tags[tag].close]);
+  }
+
+  convert(file) {
+    let lineReader = reader.createInterface({
+      input: fs.createReadStream(file),
+    });
+
+    lineReader.on('line', function (line) {
+      if (line.match (/^[0-9]\./)) {
+        this.createTag('h3', Buffer.from(line));
+      }
+      else if (line.match(/\./)) {
+        line.split('.').forEach(sentence => {
+          sentence && this.createTag('li', Buffer.from(sentence));
+        });
+      }
+      else if (line) {
+        this.createTag('h2', Buffer.from(line));
+      }
+    }.bind(this));
+
+    lineReader.on('close', () => {
+      return new Promise((resolve, reject) => { 
+        fs.writeFile('./files/index.html', this.buffer, (err, data) => {
+          if (err) reject(err); {
+            resolve(data)
+          };
+          console.log(writeFile());
+        });
+      });
+    });
+  }
+};
+
+let htmlTags = new CreateArticle();
+htmlTags.convert('./files/pair-programming.txt');
