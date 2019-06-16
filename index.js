@@ -20,10 +20,10 @@ let writeFile = binaryFile => {
   });
 };
 let newBuffer = (arr) => {
-  return new Promise((resolve, reject) => { 
+  return new Promise((resolve) => { 
     let data = Buffer.from('');
     arr.forEach(element => {
-    data = Buffer.concat([data, Buffer.from(element)]);
+      data = Buffer.concat([data, Buffer.from(element)]);
       console.log(data);
     });
     resolve(data); 
@@ -39,8 +39,8 @@ let readFile = () => {
   return new Promise((resolve, reject) => { 
     fs.readFile('./files/loop.js', (err, data) => {
       if (err) reject(err); {
-        resolve(data)
-      };
+        resolve(data);
+      }
     });
     console.log(readFile());
   });
@@ -67,7 +67,7 @@ class CreateArticle {
   }
 
   convert(file) {
-    var lineReader = readLine.createInterface({
+    let lineReader = readLine.createInterface({
       input: fs.createReadStream(file),
     });
 
@@ -86,7 +86,7 @@ class CreateArticle {
     }.bind(this));
 
     lineReader.on('close', () => {
-      fs.writeFile('./files/index.html', this.buffer, (err, data) => {
+      fs.writeFile('./files/index.html', this.buffer, () => {
         console.log('Start live-server, file is there so celebrate!');
       });
     });
@@ -95,3 +95,5 @@ class CreateArticle {
 
 let htmlTags = new CreateArticle();
 htmlTags.convert('./files/pair-programming.txt');
+
+module.exports = CreateArticle;
